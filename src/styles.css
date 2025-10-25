@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* إضافات بسيطة تخص التصميم */
+body { @apply bg-gray-900 text-gray-100 font-sans; }
+a { @apply text-primary hover:underline; }
+.container { @apply max-w-6xl mx-auto px-6; }

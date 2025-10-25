@@ -1,0 +1,112 @@
+<!-- education.component.html -->
+<section id="education" class="py-20 bg-gray-900/50">
+  <div class="container mx-auto px-6">
+    
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- الجانب الأيسر - التعليم والتدريب -->
+      <div class="space-y-8">
+        <!-- التعليم -->
+        <div class="timeline-section">
+          <h3 class="section-title">
+            <i class="fas fa-graduation-cap text-blue-500 mr-3"></i>
+            Education
+          </h3>
+          <div class="timeline">
+            <div *ngFor="let edu of education" class="timeline-item">
+              <div class="timeline-period">{{ edu.period }}</div>
+              <div class="timeline-content">
+                <h4 class="timeline-institution">{{ edu.institution }}</h4>
+                <p class="timeline-degree">{{ edu.degree }}</p>
+                <p *ngIf="edu.grade" class="timeline-grade">{{ edu.grade }}</p>
+                
+                <div class="projects-list">
+                  <div *ngFor="let project of edu.projects" class="project-item">
+                    <h5 class="project-title">• {{ project.title }}</h5>
+                    <p class="project-desc">{{ project.description }}</p>
+                    <div class="tools-list">
+                      <span *ngFor="let tool of project.tools" class="tool-tag">
+                        {{ tool }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- التدريب -->
+        <div class="timeline-section">
+          <h3 class="section-title">
+            <i class="fas fa-briefcase text-purple-500 mr-3"></i>
+            Internships
+          </h3>
+          <div class="timeline">
+            <div *ngFor="let intern of internships" class="timeline-item">
+              <div class="timeline-period">{{ intern.period }}</div>
+              <div class="timeline-content">
+                <h4 class="timeline-institution">{{ intern.institution }}</h4>
+                <p class="timeline-degree">{{ intern.position }}</p>
+                
+                <div class="projects-list">
+                  <div *ngFor="let project of intern.projects" class="project-item">
+                    <h5 class="project-title">• {{ project.title }}</h5>
+                    <p class="project-desc">{{ project.description }}</p>
+                    <div class="tools-list">
+                      <span *ngFor="let tool of project.tools" class="tool-tag">
+                        {{ tool }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- الجانب الأيمن - الأبحاث -->
+      <div class="space-y-8">
+        
+
+        <!-- مهارات إضافية -->
+        <div class="skills-card">
+          <h3 class="section-title mb-6">
+            <i class="fas fa-star text-yellow-500 mr-3"></i>
+            Key Achievements
+          </h3>
+          <div class="space-y-4">
+            <div class="achievement-item">
+              <div class="achievement-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div>
+                <h4 class="achievement-title">Graduation with Honors</h4>
+                <p class="achievement-desc">Very Good with Honors (82%)</p>
+              </div>
+            </div>
+            <div class="achievement-item">
+              <div class="achievement-icon">
+                <i class="fas fa-medal"></i>
+              </div>
+              <div>
+                <h4 class="achievement-title">Distinct Graduation Project</h4>
+                <p class="achievement-desc">Sign Language Recognition System</p>
+              </div>
+            </div>
+            <div class="achievement-item">
+              <div class="achievement-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <div>
+                <h4 class="achievement-title">ITI Certification</h4>
+                <p class="achievement-desc">Full Stack .NET Development</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

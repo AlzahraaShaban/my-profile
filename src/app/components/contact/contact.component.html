@@ -1,0 +1,174 @@
+<!-- contact.component.html -->
+<section id="contact" class="py-20 bg-gray-900">
+  <div class="container mx-auto px-6">
+    <!-- العنوان الرئيسي -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <span class="text-white">Let's</span>
+        <span class="gradient-text"> Connect</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Get in touch and let's discuss how we can work together
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <!-- نموذج الاتصال -->
+      <div class="contact-form-container">
+        <form 
+          (ngSubmit)="onSubmit()" 
+          class="space-y-6"
+          #contactForm="ngForm"
+        >
+          <!-- الاسم -->
+          <div class="form-group">
+            <label class="form-label">Your name</label>
+            <input 
+              type="text" 
+              [(ngModel)]="formData.name"
+              name="name"
+              required
+              class="form-input"
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          <!-- الهاتف -->
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input 
+              type="tel" 
+              [(ngModel)]="formData.phone"
+              name="phone"
+              class="form-input"
+              placeholder="Enter your phone number"
+            />
+          </div>
+
+          <!-- البريد الإلكتروني -->
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input 
+              type="email" 
+              [(ngModel)]="formData.email"
+              name="email"
+              required
+              class="form-input"
+              placeholder="Enter your email address"
+            />
+          </div>
+
+          <!-- الموضوع -->
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input 
+              type="text" 
+              [(ngModel)]="formData.subject"
+              name="subject"
+              class="form-input"
+              placeholder="Enter the subject"
+            />
+          </div>
+
+          <!-- الرسالة -->
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea 
+              [(ngModel)]="formData.message"
+              name="message"
+              required
+              rows="5"
+              class="form-input resize-none"
+              placeholder="Enter your message..."
+            ></textarea>
+          </div>
+
+          <!-- زر الإرسال -->
+          <button 
+            type="submit" 
+            class="submit-btn"
+            [disabled]="!contactForm.valid"
+          >
+            <i class="fas fa-paper-plane mr-2"></i>
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- معلومات الاتصال -->
+      <div class="contact-info-container">
+        <div class="space-y-8">
+          <!-- معلومات الاتصال -->
+          <div class="space-y-6">
+            <!-- الهاتف -->
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h3 class="contact-label">Phone Number</h3>
+                <p class="contact-value">{{ contactInfo.phone }}</p>
+              </div>
+            </div>
+
+            <!-- البريد الإلكتروني -->
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h3 class="contact-label">Email</h3>
+                <p class="contact-value">{{ contactInfo.email }}</p>
+              </div>
+            </div>
+
+            <!-- الموقع -->
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h3 class="contact-label">Address</h3>
+                <p class="contact-value">{{ contactInfo.location }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- الخط الفاصل -->
+          <div class="border-t border-gray-700 pt-8">
+            <!-- وسائل التواصل الاجتماعي -->
+            <div class="text-center">
+              <h3 class="text-lg font-semibold text-white mb-4">Follow Me</h3>
+              <div class="flex justify-center gap-6">
+                <a 
+                  *ngFor="let social of socialLinks"
+                  [href]="social.url"
+                  class="social-icon"
+                  [class]="social.color"
+                >
+                  <i [class]="social.icon"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- إحصائيات -->
+            <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+              <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Clients</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">2+</div>
+                <div class="stat-label">Years</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
